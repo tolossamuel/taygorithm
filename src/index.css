@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root {
+  --primary: #00e1ab;
+  --on-primary: #003828;
+  --surface: #10131a;
+  --surface-variant: #191c22;
+  --surface-container-lowest: #141820;
+  --surface-container-low: #191c22;
+  --surface-container: #1d2026;
+  --surface-container-high: #272a31;
+  --surface-container-highest: #2c3038;
+  --outline-variant: #44474c;
+  --on-surface: #f3f6fb;
+  --on-surface-dim: #a2adbc;
+  --on-surface-subtle: #8a95a6;
+  --tone-depth-soft: color-mix(in srgb, var(--surface) 82%, var(--surface-container-low));
+  --tone-skill-bg: color-mix(in srgb, var(--surface) 88%, var(--surface-container) 12%);
+  --tone-skill-border: color-mix(in srgb, var(--outline-variant) 12%, transparent);
+  --tone-skill-hover: color-mix(in srgb, var(--surface-container-high) 45%, transparent);
+
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--on-surface);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background: var(--surface);
+}
+
+p {
+  margin: 0;
+}
