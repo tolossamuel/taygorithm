@@ -974,8 +974,7 @@ h3 {
   letter-spacing: 0.05em;
 }
 
-.contact-form label:nth-child(3),
-.contact-form label:nth-child(4),
+.contact-form label.full-width,
 .contact-form .btn {
   grid-column: 1 / -1;
 }

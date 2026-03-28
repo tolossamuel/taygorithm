@@ -361,6 +361,34 @@ function App() {
 
   const loopingStack = [...stack, ...stack]
 
+  const handleContactSubmit = (event) => {
+    event.preventDefault()
+
+    const formData = new FormData(event.currentTarget)
+    const name = String(formData.get('name') || '').trim()
+    const company = String(formData.get('company') || '').trim()
+    const email = String(formData.get('email') || '').trim()
+    const needs = String(formData.get('needs') || '').trim()
+    const message = String(formData.get('message') || '').trim()
+
+    const subject = encodeURIComponent(
+      `Project Inquiry from ${name || 'Website Visitor'}`,
+    )
+    const body = encodeURIComponent(
+      [
+        `Name: ${name}`,
+        `Company: ${company}`,
+        `Email: ${email}`,
+        `Infrastructure Needs: ${needs}`,
+        '',
+        'Message:',
+        message,
+      ].join('\n'),
+    )
+
+    window.location.href = `mailto:tolossamuel1@gmail.com?subject=${subject}&body=${body}`
+  }
+
   const projects = [
     {
       id: 'saas-dashboard',
@@ -625,23 +653,32 @@ function App() {
                 giant, we provide the architectural muscle.
               </p>
               <ul>
-                <li>email: admin@taygorithm.com</li>
+                <li>email: tolossamuel1@gmail.com</li>
                 <li>area: Silicon Valley / Remote</li>
               </ul>
             </div>
 
-            <form className="contact-form" onSubmit={(event) => event.preventDefault()}>
+            <form className="contact-form" onSubmit={handleContactSubmit}>
               <label>
                 NAME
-                <input type="text" placeholder="John Doe" />
+                <input name="name" type="text" placeholder="John Doe" required />
               </label>
               <label>
                 COMPANY
-                <input type="text" placeholder="Acme Corp" />
+                <input name="company" type="text" placeholder="Acme Corp" />
               </label>
               <label>
+                EMAIL
+                <input
+                  name="email"
+                  type="email"
+                  placeholder="you@company.com"
+                  required
+                />
+              </label>
+              <label className="full-width">
                 INFRASTRUCTURE NEEDS
-                <select defaultValue="">
+                <select name="needs" defaultValue="" required>
                   <option value="" disabled>
                     Backend Architecture
                   </option>
@@ -650,11 +687,13 @@ function App() {
                   <option>Product Engineering</option>
                 </select>
               </label>
-              <label>
+              <label className="full-width">
                 MESSAGE
                 <textarea
+                  name="message"
                   rows="4"
                   placeholder="Describe your technical challenge..."
+                  required
                 />
               </label>
               <button className="btn" type="submit">
