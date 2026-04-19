@@ -44,3 +44,5 @@ export const ComponentDay20 = () => <div>Update Day 20</div>;
 export const ComponentDay21 = () => <div>Update Day 21</div>;
 
 export const ComponentDay22 = () => <div>Update Day 22</div>;
+
+export const ComponentDay23 = () => <div>Update Day 23</div>;
